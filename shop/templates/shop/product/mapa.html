@@ -16,19 +16,19 @@
     <div id="nameMesa">
       <h1>C&oacute;mo llegar</h1>
     </div>
-<div class="map_canvas_wrapper">
+    <div class="map_canvas_wrapper">
 
-  <div id="map_canvas">
-    {% for mapa in mapas %}
-    <div class="mapaTexto">
-      <h3>{{ mapa.name }}</h3>
-      <p>{{ mapa.description|safe }}</p>
-      <a href="https://mobile-web.world.waze.com/en_GB/meetup/location?h=9g96013rm">
-      <img class="imgWaze" src="{% static "img/waze-logo.png" %}" alt="waze">
-      </a>
-    </div>
+      <div id="map_canvas">
+        {% for mapa in mapas %}
+        <div class="mapaTexto">
+          <h3>{{ mapa.name }}</h3>
+          <p>{{ mapa.description|safe }}</p>
+          <a href="https://mobile-web.world.waze.com/en_GB/meetup/location?h=9g96013rm">
+          <img class="imgWaze" src="{% static "img/waze-logo.png" %}" alt="waze">
+          </a>
+        </div>
 
-    </div>
+        </div>
       <a href="https://mobile-web.world.waze.com/en_GB/meetup/location?h=9g96013rm">
         <img class="imageMapa" src="{% if mapa.image %}{{ mapa.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}">
       </a>

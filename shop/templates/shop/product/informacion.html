@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-Informaci&oacute;n
+Danny y Chris
 {% endblock %}
 
 {% block content %}
@@ -19,15 +19,25 @@ Informaci&oacute;n
 
   {% for info in infos %}
     <div class="infoContainer">
-      <div class="infoOut" data-aos="fade-up" data-aos-duration="2000">
+      <div class="infoOut" data-aos="fade-up" data-aos-duration="1000">
+
+
+          <!--  <a href="{% url "shop:product_list" %}">MESA DE REGALOS</a>-->
+
 
             <a href="{{ info.get_absolute_url }}" class="informacion" style="background-image: url({% if info.image %}{{ info.image.url }}{%else %}{% static 'img/no_image.png' %}{% endif %});">
+
+            <!--<a href="{{ info.get_absolute_url }}" class="informacion" style="background-image: url({% if info.image %}{{ info.image.url }}{%else %}{% static 'img/no_image.png' %}{% endif %});">-->
+
+
             <!-- <a href="{{ info.get_absolute_url }}" class="informacion" > -->
                 <!-- <img class="imageInfo" src="{% if info.image %}{{ info.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}"> -->
                 <!-- <p >{{ info.description }}</p> -->
                 <!-- <br> -->
 
             </a>
+
+
 
 
 

@@ -98,7 +98,7 @@ class Info(models.Model):
     available = models.BooleanField(default=True)
 
     class Meta:
-        ordering = ('name',)
+        ordering = ('updated',)
         index_together = (('id', 'slug'),)
 
     def __str__(self):
@@ -117,8 +117,8 @@ class Mapa(models.Model):
     description = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    address = map_fields.AddressField(max_length=200)
-    geolocation = map_fields.GeoLocationField(max_length=100)
+    #address = map_fields.AddressField(max_length=200)
+    #geolocation = map_fields.GeoLocationField(max_length=100)
     available = models.BooleanField(default=True)
 
 
@@ -149,9 +149,10 @@ class Product(models.Model):
             return reverse('shop:product_detail',
                            args=[self.id, self.slug])
 
-
+# 'artista', 'canción', 'tu nombre y porqué'
 class PlayList(models.Model):
         nombre = models.CharField(blank=True, max_length=100)
+        artista = models.CharField(blank=True, max_length=100)
         cancion = models.CharField(blank=False, max_length=100)
         porque = models.CharField(blank=True, max_length=100)
         available = models.BooleanField(default=True)

@@ -21,6 +21,7 @@ def product_list(request, category_slug=None):
                     'products': products})
 
 
+
 def product_detail(request, id, slug):
     product = get_object_or_404(Product,
                                 id = id,
@@ -36,34 +37,76 @@ def product_detail(request, id, slug):
 
 def info_list(request, category_slug=None):
     infos = Info.objects.filter(available=True)
+    mapas = Mapa.objects.filter(available=True)
     return render(request,
                   'shop/product/informacion.html',
-                  {'infos': infos})
+                  {'infos': infos,
+                  'mapas': mapas})
     # aqui el formulario de las canciones
 
 
 
 # @require_POST
-def info_detail(request, id, slug):
+def info_detail(request, id, slug, category_slug=None):
     info = get_object_or_404(Info,
                              id = id,
                              slug = slug,
                              available = True)
 
     form = PlayListForm()
+    infos = Info.objects.filter(available=True)
+    hotels = Hotel.objects.filter(available=True)
+    mapas = Mapa.objects.filter(available=True)
 
     if request.method == "POST":
         form = PlayListForm(request.POST)
         if form.is_valid():
             instancia = form.save(commit=False)
             instancia.save()
-            return redirect('/7/playlist/informacion/')
+            return redirect('/6/playlist/informacion/')
+
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    products = products.filter(category=category)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
 
     return render(request,
                  'shop/product/infoDetail.html',
                  {'info': info,
-                  'form': form})
+                  'form': form,
+                  'infos': infos,
+                  'hotels': hotels,
+                  'mapas': mapas,
+                  'category': category,
+                  'categories': categories,
+                  'products': products})
 
+
+
+
+# copy informacion from here
+
+
+# def product_list(request, category_slug=None):
+#     category = None
+#     categories = Category.objects.all()
+#     products = Product.objects.filter(available=True)
+#     products = products.filter(category=category)
+#     if category_slug:
+#         category = get_object_or_404(Category, slug=category_slug)
+#         products = products.filter(category=category)
+#     return render (request,
+#                     'shop/product/list.html',
+#                     {'category': category,
+#                     'categories': categories,
+#                     'products': products})
+
+
+
+########
 
 
 # aqui el mapa

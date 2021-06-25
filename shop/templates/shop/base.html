@@ -3,14 +3,69 @@
 <html>
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="Content-Language" content="es"/>
   <title>{% block title %}Danny y Chris{% endblock %}</title>
   <link href="{% static "css/base.css" %}" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Lato|Manjari|Quicksand|Raleway|Roboto:300|Slabo+27px&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/1d3a34996b.js"></script>
 
+
+
+<!--PAYPAL-->
+
+   <!--<script src="https://www.paypal.com/sdk/js?client-id=AVIHFZw2n9IxZERow9QtIGYJCTDkYHl1DJY0VNZrKdChFESzBd1rI2uYtYll5cmHYzpX72zaXE__CeNb&currency=MXN">-->
+   <!--Required. Replace SB_CLIENT_ID with your sandbox client ID.-->
+    <!--</script>-->
+
+  <!--END PAYPAL-->
+
 </head>
 <body>
+
+
+     <!--<div id="contenedorModal" style="-->
+     <!--   position: fixed;-->
+     <!--   margin: auto;-->
+     <!--   width: 100vw;-->
+     <!--   height: 100vh;-->
+     <!--   background-color: #0000001a;-->
+     <!--   display: none;-->
+     <!--   z-index: 1000000;">-->
+
+     <!--       <div id="modalInfo" style="-->
+     <!--       position: relative;-->
+     <!--       margin: auto;-->
+     <!--       width: 80vw;-->
+     <!--       height: 40vh;-->
+     <!--       background-color: red;-->
+     <!--       "><h1>HOLA</h1>-->
+     <!--           <button onclick="closeModal()">Close me</button>-->
+     <!--       </div>-->
+
+     <!--   </div>-->
+
+
+ <script>
+
+//     let contenedorModal  = document.getElementById("contenedorModal");
+//     setTimeout(function(){contenedorModal.style.display = "inherit";}, 1000);
+
+
+//     function closeModal(){
+//         contenedorModal.style.display = "none";
+
+//     }
+//     contenedorModal.onclick = function(){closeModal()};
+
+
+ </script>
+
+
+
+
+
 <div id="iconScroll">
   <img src="{% static "img/iconScroll.png" %}" alt="scroll">
 </div>
@@ -38,47 +93,119 @@
         Danny y Chris
       </a>
 
-      <nav id="idNav">
+      <!--<nav id="idNav">-->
 
-        <a href="/">INFORMACIÓN</a>
-        <a href="{% url "shop:mapa_detail" %}">MAPA</a>
-        <a href="{% url "shop:hotel_detail" %}">HOTELES</a>
-        <a href="{% url "shop:product_list" %}">MESA DE REGALOS</a>
+      <!--  <a href="/">HOME</a>-->
+      <!--  <a href="{% url "shop:mapa_detail" %}">MAPA</a>-->
+      <!--  <a href="{% url "shop:hotel_detail" %}">HOTELES</a>-->
+      <!--  <a href="{% url "shop:product_list" %}">MESA DE REGALOS</a>-->
 
-      </nav>
+      <!--</nav>-->
 
   </div>
+
+
 
   <div id="content" >
     {% block content %}
     {% endblock %}
+
+    <div class="legales" style="width: 90%;
+    margin: 30px auto;">
+    <p>
+        Sin niños<br>
+        <span style="font-variant: lining-nums; font-size: 18px;"> RSVP 55 2729 5709 </span> <br>
+        Conoce el código de conducta<br> y el reglamento de uso de instalaciones y accesorios<br>
+    </p>
+
+  <a style="background-color: black; padding: 10px 60px; border-radius: 5px; color: #c7c7c7;" href="{% static 'Compostela-Cod_conductaYreglamento.pdf' %}" target="_blank">AQUÍ</a>
+
+</div>
   </div>
 
 
-<footer id="footer" data-aos="fade-up" data-aos-anchor-placement="bottom">
+
+
+  <div id="main" class="product-list">
+    <div id="nameMesa">
+      <h1>C&oacute;mo llegar</h1>
+    </div>
+    <div class="map_canvas_wrapper">
+
+      <div id="map_canvas">
+        {% for mapa in mapas %}
+        <div class="mapaTexto">
+          <h3>{{ mapa.name }}</h3>
+          <!--<p>{{ mapa.description|safe }}</p>-->
+          <a href="https://mobile-web.world.waze.com/en_GB/meetup/location?h=9g96013rm">
+          <img class="imgWaze" src="{% static "img/waze-logo.png" %}" alt="waze">
+          </a>
+        </div>
+
+        </div>
+      <a href="https://mobile-web.world.waze.com/en_GB/meetup/location?h=9g96013rm">
+        <img class="imageMapa" src="{% if mapa.image %}{{ mapa.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}">
+      </a>
+    {% endfor %}
+  </div>
+</div>
+    <!-- {% for product in products %}
+      <div class="item">
+        <a href="{{ product.get_absolute_url }}">
+          <img class="focusImage" src="{% if product.image %}{{ product.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}">
+        </a>
+        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+        <br>
+        ${{ product.price }}
+      </div>
+    {% endfor %} -->
+  </div>
 
 
 
-<nav id="idNavFooter">
 
-  <a href="/">INFORMACIÓN</a>
-  <a href="{% url "shop:mapa_detail" %}">MAPA</a>
-  <a href="{% url "shop:hotel_detail" %}">HOTELES</a>
-  <a href="{% url "shop:product_list" %}">MESA DE REGALOS</a>
-
-</nav>
+<!--<footer id="footer">-->
 
 
-</footer>
+
+<!--<nav id="idNavFooter">-->
+
+<!--  <a href="/">HOME</a>-->
+<!--  <a href="{% url "shop:mapa_detail" %}">MAPA</a>-->
+<!--  <a href="{% url "shop:hotel_detail" %}">HOTELES</a>-->
+<!--  <a href="{% url "shop:product_list" %}">MESA DE REGALOS</a>-->
+
+<!--</nav>-->
+
+
+<!--</footer>-->
 
 <footer id="blackFooter">
 
-  <p class="derechos">Derechos reservados 2019. <a>Aviso de privacidad</a></p>
+
+     <div id="paypal-button-container"></div>
+
+  <p class="derechos">Derechos reservados 2021.</p>
+<p class="derechos">PlayList Photo by <a target="_blank" href="https://unsplash.com/@simon_noh?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Simon Noh</a> on <a target="_blank" href="https://unsplash.com/s/photos/music?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  </p>
+  <p class="derechos">Medidas Photo by <a target="_blank" href="https://unsplash.com/@danieltafjord?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Daniel Tafjord</a> on <a target="_blank" href="https://unsplash.com/s/photos/coronavirus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  </p>
 
 </footer>
 
 
+
+<!--start display PAYPAL-->
+
+ <script>
+    //paypal.Buttons().render('#paypal-button-container');
+    // This function displays Smart Payment Buttons on your web page.
+  </script>
+
+  <!--END DISPLAY PAYPAL-->
+
 </body>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();

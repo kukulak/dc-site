@@ -26,9 +26,9 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(Mapa)
 class MapaAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
-    formfield_overrides = {
-    map_fields.AddressField: {'widget': map_widgets.GoogleMapsAddressWidget(attrs={'data-map-type': 'roadmap'})},
-    }
+    #formfield_overrides = {
+    #map_fields.AddressField: {'widget': map_widgets.GoogleMapsAddressWidget(attrs={'data-map-type': 'roadmap'})},
+    #}
 
 @admin.register(Info)
 class InfoAdmin(admin.ModelAdmin):
@@ -48,7 +48,7 @@ class HotelAdmin(admin.ModelAdmin):
 @admin.register(PlayList)
 class PlayList(admin.ModelAdmin):
 
-        list_display = ['nombre', 'cancion', 'porque', 'available', 'created', 'updated']
+        list_display = ['artista', 'nombre', 'cancion', 'porque', 'available', 'created', 'updated']
 
 
 

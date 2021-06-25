@@ -224,9 +224,10 @@ ul.errorlist {
 }
 
 #content {
+  line-height: 1.6;
   margin: 0 auto;
   width: 90%;
-  padding:165px 1px;
+  padding:135px 1px 60px 1px;
   overflow:hidden;
   min-height: 68vh;
   /* min-height: 1000px; */
@@ -376,7 +377,7 @@ to {background-color: yellow;} */
 }
 
 .infoHotel{
-  width: 400px;
+  max-width: 400px;
 }
 
 #mainHotel .hotel img {
@@ -446,9 +447,9 @@ to {background-color: yellow;} */
   background-size: 100%;
   background-position: center;
   position: absolute;
-  filter: brightness(0.5);
-  -webkit-transition: .8s ease;
- transition: .8s ease;
+  filter: brightness(0.4);
+  -webkit-transition: .8s linear;
+ transition: .8s linear;
 }
 
 .infoName{
@@ -466,6 +467,7 @@ to {background-color: yellow;} */
   width: 100%;
   filter: brightness(0.8);
   background-size: 108%;
+  background-position: center center;
   /* transition:background-size 30s cubic-bezier(30,21,5,7); */
 }
 
@@ -530,9 +532,9 @@ to {background-color: yellow;} */
   width: 250px;
   height: 250px;
   margin: 6px;
-  opacity: 0.6;
-  -webkit-filter: grayscale(90%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(80%);
+  opacity: 1;
+  /*-webkit-filter: grayscale(90%);  Safari 6.0 - 9.0
+    filter: grayscale(80%);*/
     transition: all 0.5s ease;
   /* overflow: auto; */
   /* background-color: grey; */
@@ -540,8 +542,8 @@ to {background-color: yellow;} */
 
 
 .infoContainer:hover{
-  width: 250px;
-  height: 250px;
+   /*width: 250px;
+  height: 250px;*/
   margin: 6px;
   opacity: 0.9;
   -webkit-filter: grayscale(10%); /* Safari 6.0 - 9.0 */
@@ -577,10 +579,10 @@ to {background-color: yellow;} */
 
 
 #mainInfo{
-  flex-direction: row-reverse;
+  /*flex-direction: row-reverse;*/
   display: flex;
   flex-wrap: wrap;
-  flex-wrap: wrap-reverse;
+  /*flex-wrap: wrap-reverse;*/
   justify-content: center;
   max-width: 900px;
   margin: 0 auto;
@@ -589,9 +591,14 @@ to {background-color: yellow;} */
 
 .info-detail{
   width: 80%;
-  display: flex;
+
   margin: 0 auto;
   justify-content: center;
+}
+
+
+.flexMe{
+    display: flex;
 }
 
 .info-detail img{
@@ -609,16 +616,25 @@ position: sticky;
 .infoGroup form input[type="submit"]{
 
   width: 125px;
-  background: cadetblue;
+  background: #e8e8e8;
   height: 32px;
 
 }
 
-/* .inputPlayList{
+.infoGroup form input[type="submit"]:hover{
+
   width: 125px;
-  background: cadetblue;
+  background: #e5e5e5;
   height: 32px;
-} */
+  font-size: 10px;
+
+}
+
+.inputPlayList{
+  width: 125px;
+  background: #e6e6e6;
+  height: 32px;
+}
 
 
 .product-list .item img {
@@ -831,6 +847,7 @@ form div.field {
   color: #eeeeee;
   padding: 20px;
   width: -webkit-fill-available;
+  width: -moz-available;
   position: absolute;
 
 }
@@ -900,8 +917,7 @@ select{
 }
 
 .cart{
-  /* display: flex;
-  flex-flow: row wrap; */
+  display: none;
 }
 
 .viewTotal{
@@ -954,19 +970,22 @@ font-size: 11px !important;
 
 .imageMapa{
   display: block;
-  margin: 0 auto;
-  width: 500px;
-  max-width: 900px;
-  min-width: 310px;
+  margin: 20px;
+  /*width: 50% !important;*/
+  width: 450px !important;
+  /*max-width: 70% !important;*/
+  /*min-width: 210px !important;*/
+  height: auto !important;
   filter: brightness(0.5);
   -webkit-transition: .8s ease;
- transition: .8s ease;
- border: 5px solid white;
+  transition: .8s ease;
+  border: 5px solid white;
+
 }
 
 .imageMapa:hover{
-  width: 550px;
-  filter: brightness(0.8);
+
+  filter: brightness(0.95);
 }
 
 
@@ -989,10 +1008,164 @@ font-size: 11px !important;
 
 
 .imgWaze{
-  width: 50px;
+  width: 50px !important;
+  height: 50px !important;
 }
 
 
 .infoGroup form{
-  position: absolute;
+  position: relative;
 }
+
+.textMesaRegalos{
+    margin: 0 auto;
+    max-width: 720px;
+}
+
+
+.menuInfos{
+    margin-top: 200px !important;
+    max-width: 80% !important;
+    /*flex-wrap: inherit !important;*/
+    transform: scale(0.7);
+
+}
+
+
+.contInfos{
+
+}
+
+.cancion{
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    max-width: 85%;
+
+}
+
+.cancion p{
+    width: ;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+
+    form p input{
+        width: 250px;
+    }
+
+    .imageMapa{
+        width: 260px !important;
+    }
+
+      .info-detail {
+        display: block;
+      }
+
+      .infoOut {
+        width: 250px;
+        height: 250px;
+
+      }
+
+    .infoContainer {
+    width: 250px;
+    /*width: 300px;*/
+    height: 250px;
+
+    }
+
+    .infoName{
+        /*font-size: 40px;*/
+
+    }
+
+    #idNav a{
+        /*font-size: 30px;*/
+
+    }
+
+
+    .menuInfos{
+    margin-top: 250px !important;
+    max-width: 80% !important;
+    flex-wrap: wrap !important;
+    transform: scale(0.9);
+
+    }
+
+    .contInfos{
+        width: 250px !important;
+        height: 250px !important;
+    }
+
+
+    .outInfos{
+
+        width: 250px !important;
+        /*width: 300px !important;*/
+        height: 250px !important;
+
+    }
+
+    .outInfos h3{
+
+       font-size: 26px;
+
+    }
+
+    .info-detail{
+        width: 100% !important;
+    }
+
+    p{
+        /*font-size: 40px;
+        line-height: 2;*/
+    }
+
+    .info-detail img {
+        margin-top: 30px;
+        width: 70%;
+        height: auto;
+        max-width: 300px;
+
+    }
+
+    .flexMe{
+        display: flex;
+        flex-flow: column;
+    }
+
+    .cinco { order: 1; }
+    .cuatro { order: 2;  }
+    .tres { order: 2; }
+    .dos { order: 4; }
+    .uno { order: 5 }
+
+
+}
+
+[for~=id_cancion]{
+    visibility: hidden;
+}
+
+[for~=id_cancion]:before {
+    content: " Canción ";
+    visibility: visible;
+}
+
+[for~=id_porque]{
+    visibility: hidden;
+}
+
+[for~=id_porque]:before {
+    content: " Tu nombre y por qué ";
+    visibility: visible;
+}
+
+.focusImage{
+    height: auto !important;
+}
+

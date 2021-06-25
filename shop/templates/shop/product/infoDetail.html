@@ -11,37 +11,332 @@
 
   <div class="info-detail">
 
-    <img src="{% if info.image %}{{ info.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+      <div class="flexMe">
+
+    <div class="antiFlexImages">
+
+        <img src="{% if info.image %}{{ info.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+
+
+    <!--if nuestra historia-->
+
+        <!-- {% if request.path == "/2/nuestra-historia/informacion/" %}-->
+
+        <!--    <img style="margin-top: 30px;" src="{% if info.imagesecond %}{{ info.imagesecond.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">-->
+
+        <!--{% endif %}-->
+
+        <!--end if nuestra historia-->
+
+    </div>
+
+
 
     <div class="infoGroup">
       <h1>{{ info.name }}</h1>
       <p class="infoDescription">{{ info.description|safe }}</p>
 
+
+
+<!--codigo de vestimenta-->
+
       {% if request.path == "/5/codigo-de-vestimenta/informacion/" %}
       <div class="imageGroup">
+          <div class="antiFlexImages">
         <img src="{% if info.imagesecond %}{{ info.imagesecond.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
-
+</div>
         <p class="infoDescription">{{ info.descriptionsecond|safe }}</p>
-
+<div class="antiFlexImages">
         <img src="{% if info.imagethird %}{{ info.imagethird.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+        </div>
         <p class="infoDescription">{{ info.descriptionthird|safe }}</p>
 
         </div>
         {% endif %}
 
-      {% if request.path == "/7/playlist/informacion/" %}
+    <!--end codigo de vestimenta    -->
+
+
+
+           {% if request.path == "/3/3-dias-de-boda/informacion/" %}
+                <div class="imageGroup">
+                    <img src="{% if info.imagesecond %}{{ info.imagesecond.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+
+                    <p class="infoDescription">{{ info.descriptionsecond|safe }}</p>
+
+                    <img src="{% if info.imagethird %}{{ info.imagethird.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                    <p class="infoDescription">{{ info.descriptionthird|safe }}</p>
+
+                </div>
+            {% endif %}
+
+
+
+      {% if request.path == "/6/playlist/informacion/" %}
       <!-- <p>Hola estoy en playlist</p> -->
-          <form method="POST">
+          <form class="cancion" method="POST">
             {{form.as_p}}
             {% csrf_token %}
+            <br />
             <input class="inputPlayList" type="submit" value="MANDAR">
           </form>
 
       {% endif %}
 
+
+
+
+
+
+        </div>
+
+
+</div>
+
+
+ <!--if hospedaje-->
+
+         {% if request.path == "/3/hospedaje/informacion/" %}
+      <!-- informacion de los hoteles dentro de el lugar de la hacienda -->
+    <div style=" display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: space-around; ">
+        <a style="background-color: black; padding: 10px 60px; border-radius: 5px; color: #c7c7c7;" href="{% static 'nuevasCuentas.pdf' %}" target="_blank">DESCARGA AQUÍ</a>
+        <h3>IMPORTANTE COLOCAR LA REFERENCIA: 109 </h3>
+    </div>
+
+    <div style=" display: grid;
+    justify-content: center;
+    margin: 50px 0;">
+       <p class="infoDescription">
+           <h3><strong>Hospedaje por tu cuenta </strong></h3>
+
+            Puedes llegar a la Hacienda Compostela o a la iglesia directo el sábado 5 de junio 2021. <br />
+            Acá te dejamos algunas opciones de hoteles cercanos.<br>
+            El costo incluye únicamente tu asistencia para el día de la fiesta el sábado 5 de junio 2021.
+        </p>
+    </div>
+
+         <div id="nameMesa">
+            <h1>Hoteles cercanos</h1>
+        </div>
+        <div id="mainHotel" class="product-list">
+
+        {% for hotel in hotels %}
+            <div class="hotelOut">
+                <div class="hotel" data-aos="fade-up" data-aos-duration="2000">
+
+                    <!-- <a href="{{ hotel.get_absolute_url }}">-->
+                    <a href="{{ hotel.link }}" target="_blank">
+                    <img class="focusHotel" src="{% if hotel.image %}{{ hotel.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}">
+                    </a>
+                    <div class="infoHotel">
+                      <h2>{{ hotel.name }}</h2>
+                      <p>{{ hotel.description }}</p>
+                      <p>{{ hotel.address }}</p>
+                      <p>{{ hotel.phone }}</p>
+                      <a target="_blank" href="{{ hotel.link }}">Con&oacute;celo ></a>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+
+         {% endif %}
+
+        <!--end if hospedaje-->
+
+
+
+
+<!--if lugar de la boda-->
+
+         {% if request.path == "/4/tres-dias-de-fiesta/informacion/" %}
+      <!-- informacion de los hoteles dentro de el lugar de la hacienda -->
+       <div id="main" class="product-list" style="margin-top: 40px;">
+    <div id="nameMesa">
+      <h1>C&oacute;mo llegar</h1>
+    </div>
+    <div class="map_canvas_wrapper">
+
+      <div id="map_canvas">
+        {% for mapa in mapas %}
+        <div class="mapaTexto">
+          <!--<h3>{{ mapa.name }}</h3>-->
+
+          <!--<a href="https://mobile-web.world.waze.com/en_GB/meetup/location?h=9g96013rm">-->
+            <!--<img class="imgWaze" src="{% static "img/waze-logo.png" %}" alt="waze">-->
+          <!--</a>-->
+
+        </div>
+
+        </div>
+
+      <!--<a href="https://mobile-web.world.waze.com/en_GB/meetup/location?h=9g96013rm">-->
+      <!--  <img class="imageMapa" src="{% if mapa.image %}{{ mapa.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}">-->
+      <!--</a>-->
+        <div>
+         <p>{{ mapa.description|safe }}</p>
+        </div>
+    {% endfor %}
+  </div>
+</div>
+
+ {% endif %}
+
+        <!--end if lugar de la boda-->
+
+
+
+
+
+<!--another-->
+
+     <!--if nuestra historia -->
+
+           {% if request.path == "/2/nuestra-historia/informacion/" %}
+      <!-- informacion de los hoteles dentro de el lugar de la hacienda -->
+       <!--<div id="main" class="product-list" style="width: 100% !important; margin-top: 40px;">-->
+
+
+
+            <div class="flexMe">
+
+                <p class="infoDescription uno">{{ info.descriptionsecond|safe }}</p>
+                <div class="antiFlexImages dos">
+                <img style="margin-left: 30px;" src="{% if info.imagesecond %}{{ info.imagesecond.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                </div>
+
+            </div>
+
+            <div class="flexMe">
+
+              <div class="antiFlexImages tres">
+                <img style="margin-top: 30px;" src="{% if info.imagesecond %}{{ info.imagethird.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+              </div>
+              <p class="infoDescription cuatro">{{ info.descriptionthird|safe }}</p>
+
+            </div>
+
+
+
+
+
+<!--</div>-->
+
+ {% endif %}
+
+
+
+<!--end nuestra historia-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--if MESA -->
+
+           {% if request.path == "/7/estan-listos/informacion/" %}
+
+
+
+
+
+
+
+ {% endif %}
+
+
+
+<!--end MESA-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <a href="/" class="iconBack">
         <img src="{% static "img/flecha.png" %}" alt="scroll">
       </a>
+
+
+
+
+
     </div>
-  </div>
+
+
+
+
+
+
+
+
+
+       <!--here same menu of home -->
+
+
+<div id="mainInfo" class="informacion-list menuInfos" >
+
+       {% for info in infos %}
+    <div class="infoContainer contInfos">
+      <div class="infoOut outInfos" data-aos="fade-up" data-aos-duration="2000">
+
+            <a href="{{ info.get_absolute_url }}" class="informacion" style="background-image: url({% if info.image %}{{ info.image.url }}{%else %}{% static 'img/no_image.png' %}{% endif %});">
+            <!-- <a href="{{ info.get_absolute_url }}" class="informacion" > -->
+                <!-- <img class="imageInfo" src="{% if info.image %}{{ info.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}"> -->
+                <!-- <p >{{ info.description }}</p> -->
+                <!-- <br> -->
+
+            </a>
+
+
+
+
+            <h3 class="infoName noselectText">{{ info.name }}</h3>
+        </div>
+      </div>
+    {% endfor %}
+
+      </div>
+
+
+
+
+
+
+
+      <!--end menu of home -->
+
+
+
+
+
+
 {% endblock %}

@@ -12,6 +12,7 @@ from django.http import HttpResponse
 from django.template.loader import render_to_string
 import weasyprint
 from weasyprint import HTML, CSS
+import stripe
 
 def order_create(request):
     cart = Cart(request)

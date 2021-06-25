@@ -25,6 +25,7 @@ SECRET_KEY = 'af(_++hn!5d7ae(80&8h=+rassogslq_clzps3!z$d+4_)ua_#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# ALLOWED_HOSTS = ['www.dannyychris.com']
 ALLOWED_HOSTS = []
 
 
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
     'django_google_maps',
+    'stripe',
 ]
 
 MIDDLEWARE = [
@@ -131,6 +133,7 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# MEDIA_ROOT = '/home/valderramakelly/dcmesa/media'
 
 CART_SESSION_ID = 'cart'
 
@@ -154,6 +157,7 @@ Configuration.configure(
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATIC_ROOT = '/home/valderramakelly/dcmesa/static'
 
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_HOST_USER = 'account@gmail.com'
@@ -162,3 +166,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # EMAIL_USE_TLS = True
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyBd77cbAmmTyuVZKIjgAGUUlyH76AWGkWo'
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_3HexlHTtHjB9Qpf1MEGdSksr00NywjkPMu'
+STRIPE_SECRET_KEY = 'sk_test_lgtqMAHTqTlyxJyP106hpcVx008LcIYb6x'

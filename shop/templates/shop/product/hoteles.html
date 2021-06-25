@@ -18,6 +18,7 @@
                         direccion
                         telefono
                         link
+
                                   -->
 
 
@@ -30,7 +31,8 @@
     <div class="hotelOut">
         <div class="hotel" data-aos="fade-up" data-aos-duration="2000">
 
-            <a href="{{ hotel.get_absolute_url }}">
+            <!-- <a href="{{ hotel.get_absolute_url }}">-->
+            <a href="{{ hotel.link }}" target="_blank">
               <img class="focusHotel" src="{% if hotel.image %}{{ hotel.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}">
             </a>
             <div class="infoHotel">
