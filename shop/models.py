@@ -46,7 +46,7 @@ class JustImages(models.Model):
                             db_index=True, default='imgname')
     slug = models.SlugField(blank=True, max_length=200,
                             unique=True, default='imgslug')
-
+                            
     class Meta:
         ordering = ('name',)
         index_together = (('id', 'slug'),)

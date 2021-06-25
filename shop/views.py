@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Product, Hotel, Info, Mapa, PlayList
+from .models import Category, Product, Hotel, Info, Mapa, PlayList, JustImages
 from cart.forms import CartAddProductForm
 from .forms import PlayListForm
 from django.views.decorators.http import require_POST
@@ -38,10 +38,13 @@ def product_detail(request, id, slug):
 def info_list(request, category_slug=None):
     infos = Info.objects.filter(available=True)
     mapas = Mapa.objects.filter(available=True)
+    dcimages = JustImages.objects.all()
+
     return render(request,
                   'shop/product/informacion.html',
                   {'infos': infos,
-                  'mapas': mapas})
+                  'mapas': mapas,
+                  'dcimages': dcimages})
     # aqui el formulario de las canciones
 
 

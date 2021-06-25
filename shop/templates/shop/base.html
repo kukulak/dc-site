@@ -12,6 +12,10 @@
 <script src="https://kit.fontawesome.com/1d3a34996b.js"></script>
 
 
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+
 
 <!--PAYPAL-->
 
@@ -110,7 +114,7 @@
     {% block content %}
     {% endblock %}
 
-    <div class="legales" style="width: 90%;
+    <!-- <div class="legales" style="width: 90%;
     margin: 30px auto;">
     <p>
         Sin niños<br>
@@ -120,12 +124,12 @@
 
   <a style="background-color: black; padding: 10px 60px; border-radius: 5px; color: #c7c7c7;" href="{% static 'Compostela-Cod_conductaYreglamento.pdf' %}" target="_blank">AQUÍ</a>
 
-</div>
+</div> -->
   </div>
 
 
 
-
+<!-- 
   <div id="main" class="product-list">
     <div id="nameMesa">
       <h1>C&oacute;mo llegar</h1>
@@ -135,9 +139,9 @@
       <div id="map_canvas">
         {% for mapa in mapas %}
         <div class="mapaTexto">
-          <h3>{{ mapa.name }}</h3>
+          <h3>{{ mapa.name }}</h3> -->
           <!--<p>{{ mapa.description|safe }}</p>-->
-          <a href="https://mobile-web.world.waze.com/en_GB/meetup/location?h=9g96013rm">
+          <!-- <a href="https://mobile-web.world.waze.com/en_GB/meetup/location?h=9g96013rm">
           <img class="imgWaze" src="{% static "img/waze-logo.png" %}" alt="waze">
           </a>
         </div>
@@ -148,7 +152,7 @@
       </a>
     {% endfor %}
   </div>
-</div>
+</div> -->
     <!-- {% for product in products %}
       <div class="item">
         <a href="{{ product.get_absolute_url }}">
@@ -186,10 +190,10 @@
      <div id="paypal-button-container"></div>
 
   <p class="derechos">Derechos reservados 2021.</p>
-<p class="derechos">PlayList Photo by <a target="_blank" href="https://unsplash.com/@simon_noh?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Simon Noh</a> on <a target="_blank" href="https://unsplash.com/s/photos/music?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+<!-- <p class="derechos">PlayList Photo by <a target="_blank" href="https://unsplash.com/@simon_noh?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Simon Noh</a> on <a target="_blank" href="https://unsplash.com/s/photos/music?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   </p>
   <p class="derechos">Medidas Photo by <a target="_blank" href="https://unsplash.com/@danieltafjord?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Daniel Tafjord</a> on <a target="_blank" href="https://unsplash.com/s/photos/coronavirus?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  </p>
+  </p> -->
 
 </footer>
 
@@ -211,5 +215,58 @@
   AOS.init();
 </script>
   <script type="text/javascript" src="{% static "js/changeQuantity.js" %}"></script>
+
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+  <!-- <script>
+    const swiper = new Swiper('.swiper-container', {
+  // Optional parameters
+  direction: 'vertical',
+  loop: true,
+  autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+  </script> -->
+
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
   <!-- <script type="text/javascript" src="{% static "js/moveHome.js" %}"></script> -->
 </html>
